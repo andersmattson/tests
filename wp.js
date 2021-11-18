@@ -1,3 +1,7 @@
+    
+var scr = document.createElement("script");
+scr.src="https://js.pusher.com/7.0/pusher.min.js";
+scr.addEventListener("load", function(){
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
@@ -9,3 +13,5 @@
     channel.bind('my-event', function(data) {
       document.querySelector('.MuiButtonBase-root.MuiIconButton-root[type="button"]').click()
     });
+});
+document.body.appendChild(scr);
