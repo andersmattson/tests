@@ -46,7 +46,7 @@ daily.addEventListener("load", function(){
                 case "toggle":
                     if( isPlaying || !firstPlay ){
                         document.querySelector('#hp-controls > div > div:first-child').click()
-                        isPlaying = false;
+                        isPlaying = !isPlaying;
                     } else {
                         document.querySelector('main.jss1 .MuiButtonBase-root.MuiIconButton-root[type="button"]').click()
                         isPlaying = true;
