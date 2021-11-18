@@ -18,6 +18,8 @@ daily.addEventListener("load", function(){
 });
 document.body.appendChild(daily);
 
+var btn = document.createElement("button");
+
 var draken = {
     isPlaying: false,
     toggle: function(){
@@ -36,6 +38,25 @@ var draken = {
 
         callFrame.setLocalVideo(!draken.isPlaying);
         callFrame.setLocalAudio(!draken.isPlaying);
+        
+        if(draken.isPlaying){
+            btn.innerHTML = 'Stoppa';
+        } else {
+            btn.innerHTML = 'Starta';
+        }
 
     }
 };
+
+btn.innerHTML = "Starta";
+btn.style.position = 'fixed';
+btn.style.bottom = '10px';
+btn.style.right = '400px';
+btn.style.backgroundColor = 'red';
+btn.style.color = 'white';
+btn.style.fontWeight = '700';
+btn.style.border = 'none';
+btn.style.padding = '10px';
+
+btn.addEventListener('click', draken.toggle);
+document.body.appendChild(btn);
