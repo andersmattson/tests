@@ -49,6 +49,8 @@ daily.addEventListener("load", function(){
                         isPlaying = false;
                     } else {
                         document.querySelector('main.jss1 .MuiButtonBase-root.MuiIconButton-root[type="button"]').click()
+                        isPlaying = true;
+                        firstPlay = false;
                     }
             }
         }
