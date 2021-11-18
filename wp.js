@@ -1,6 +1,14 @@
     
 var scr = document.createElement("script");
 scr.src="https://js.pusher.com/7.0/pusher.min.js";
+
+var lnk = document.createElement("A");
+lnk.href = "https://goteborgfilmfestival.daily.co/3PVWLU1HeQA3vOzUCAWM";
+lnk.target = "_blank";
+lnk.innerHTML = "Chat";
+lnk.classList.add("thisisthelink");
+document.body.appendChild(lnk);
+
 scr.addEventListener("load", function(){
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -16,6 +24,9 @@ scr.addEventListener("load", function(){
     
     channel.bind('pause', function(data) {
         document.querySelector('#hp-controls > div > div:first-child').click()
+    });
+    channel.bind('chat', function(data) {
+        document.querySelector('.thisisthelink').click()
     });
 });
 document.body.appendChild(scr);
