@@ -5,7 +5,7 @@ lnk.target = "_blank";
 lnk.innerHTML = "Chat";
 lnk.classList.add("thisisthelink");
 document.body.appendChild(lnk);
-*/
+
 var scr = document.createElement("script");
 scr.src="https://js.pusher.com/7.0/pusher.min.js";
 
@@ -30,6 +30,9 @@ scr.addEventListener("load", function(){
     });
 });
 document.body.appendChild(scr);
+*/
+var firstPlay = true;
+var isPlaying = false;
 
 var daily = document.createElement("script");
 daily.src = 'https://unpkg.com/@daily-co/daily-js';
@@ -37,8 +40,18 @@ daily.crossOrigin = '';
 daily.addEventListener("load", function(){
     callFrame = window.DailyIframe.createFrame();
     callFrame.join({ url: 'https://goteborgfilmfestival.daily.co/3PVWLU1HeQA3vOzUCAWM' });
-    callFrame.on("app-message", function(data){
-        console.log(data);
+    callFrame.on("app-message", function(ev){
+        if( ev && ev.data && ev.data.cmd ) {
+            switch( ev.data.cmd ){
+                case "toggle":
+                    if( isPlaying || !firstPlay ){
+                        document.querySelector('#hp-controls > div > div:first-child').click()
+                        isPlaying = false;
+                    } else {
+                        document.querySelector('main.jss1 .MuiButtonBase-root.MuiIconButton-root[type="button"]').click()
+                    }
+            }
+        }
     });
 });
 document.body.appendChild(daily);
