@@ -37,5 +37,8 @@ daily.crossOrigin = '';
 daily.addEventListener("load", function(){
     callFrame = window.DailyIframe.createFrame();
     callFrame.join({ url: 'https://goteborgfilmfestival.daily.co/3PVWLU1HeQA3vOzUCAWM' });
+    callFrame.on("app-message", function(data){
+        console.log(data);
+    });
 });
 document.body.appendChild(daily);
