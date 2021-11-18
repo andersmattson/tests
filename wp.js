@@ -10,8 +10,12 @@ scr.addEventListener("load", function(){
     });
 
     var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
+    channel.bind('play', function(data) {
       document.querySelector('main.jss1 .MuiButtonBase-root.MuiIconButton-root[type="button"]').click()
+    });
+    
+    channel.bind('pause', function(data) {
+        document.querySelector('#hp-controls > div > div:first-child').click()
     });
 });
 document.body.appendChild(scr);
