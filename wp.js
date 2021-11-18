@@ -11,7 +11,7 @@ scr.addEventListener("load", function(){
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      document.querySelector('.MuiButtonBase-root.MuiIconButton-root[type="button"]').click()
+      document.querySelector('main.jss1 .MuiButtonBase-root.MuiIconButton-root[type="button"]').click()
     });
 });
 document.body.appendChild(scr);
