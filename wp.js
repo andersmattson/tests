@@ -19,6 +19,7 @@ daily.addEventListener("load", function(){
 document.body.appendChild(daily);
 
 var draken = {
+    isPlaying: false,
     toggle: function(){
         callFrame.sendAppMessage( { cmd: 'toggle' }, '*' );
         draken.toggleMine();
@@ -30,5 +31,11 @@ var draken = {
         } else {
             document.querySelector('main.jss1 .MuiButtonBase-root.MuiIconButton-root[type="button"]').click()
         }
+        
+        draken.isPlaying = !draken.isPlaying;
+
+        callFrame.setLocalVideo(!draken.isPlaying);
+        callFrame.setLocalAudio(!draken.isPlaying);
+
     }
 };
