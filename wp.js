@@ -4,6 +4,7 @@ daily.crossOrigin = '';
 daily.addEventListener("load", function(){
     callFrame = window.DailyIframe.createFrame();
     callFrame.join({ url: 'https://goteborgfilmfestival.daily.co/3PVWLU1HeQA3vOzUCAWM' });
+    callFrame.iframe().style.zIndex = 1000;
     callFrame.on("app-message", function(ev){
         if( ev && ev.data && ev.data.cmd ) {
             switch( ev.data.cmd ){
@@ -57,6 +58,7 @@ btn.style.color = 'white';
 btn.style.fontWeight = '700';
 btn.style.border = 'none';
 btn.style.padding = '10px';
+btn.style.zIndex = 1000;
 
 btn.addEventListener('click', draken.toggle);
 document.body.appendChild(btn);
